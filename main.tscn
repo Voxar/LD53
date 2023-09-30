@@ -1,47 +1,68 @@
-[gd_scene load_steps=4 format=3 uid="uid://b5xgyjyrsf6gm"]
+[gd_scene load_steps=7 format=3 uid="uid://b5xgyjyrsf6gm"]
 
 [ext_resource type="Script" path="res://Ship.gd" id="1_7a5yy"]
+[ext_resource type="Script" path="res://main.gd" id="1_wgf28"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_r8toh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_647gk"]
 size = Vector3(1, 0.38, 1.755)
 
 [sub_resource type="BoxMesh" id="BoxMesh_x6qk1"]
 
+[sub_resource type="SphereMesh" id="SphereMesh_0atp8"]
+
 [node name="Node3D" type="Node3D"]
+script = ExtResource("1_wgf28")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.692034, 0.303379, -0.655019, -0.0243325, 0.916686, 0.398866, 0.721455, -0.26009, 0.64176, -7.48954, 3.63302, 4.85897)
 fov = 98.4375
 
-[node name="RigidBody3D" type="RigidBody3D" parent="."]
+[node name="Ship" type="RigidBody3D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_r8toh")
+linear_damp = 1.0
+angular_damp = 1.0
 script = ExtResource("1_7a5yy")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ship"]
 shape = SubResource("BoxShape3D_647gk")
 
-[node name="Ship" type="Node3D" parent="RigidBody3D"]
+[node name="Ship" type="Node3D" parent="Ship"]
 
-[node name="Gfx" type="Node3D" parent="RigidBody3D/Ship"]
+[node name="Gfx" type="Node3D" parent="Ship/Ship"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/Ship/Gfx"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.375678, 0, 1, 0, -4.37114e-08, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ship/Ship/Gfx"]
+transform = Transform3D(-4.37114e-08, 0, -1, -0.00331612, 0.375676, 1.44952e-10, 0.999995, 0.00124579, -4.37112e-08, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 mesh = SubResource("BoxMesh_x6qk1")
 skeleton = NodePath("../..")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/Ship/Gfx/MeshInstance3D"]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Ship/Ship/Gfx/MeshInstance3D"]
 transform = Transform3D(0.505425, 0, 0, 0, 0.160131, 0, 0, 0, 0.137235, 0.523966, 0.249739, -0.551439)
 mesh = SubResource("BoxMesh_x6qk1")
 skeleton = NodePath("../MeshInstance3D")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/Ship/Gfx/MeshInstance3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ship/Ship/Gfx/MeshInstance3D"]
 transform = Transform3D(0.710932, 0, 0, 0, 0.400164, 0, 0, 0, 0.370453, -0.604865, 0, 0)
 mesh = SubResource("BoxMesh_x6qk1")
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="RigidBody3D/Ship/Gfx/MeshInstance3D"]
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Ship/Ship/Gfx/MeshInstance3D"]
 transform = Transform3D(0.505425, 0, 0, 0, 0.160131, 0, 0, 0, 0.137235, 0.523966, 0.249739, 0.554252)
 mesh = SubResource("BoxMesh_x6qk1")
 skeleton = NodePath("../MeshInstance3D")
 
-[node name="Camera3D" type="Camera3D" parent="RigidBody3D/Ship"]
+[node name="Camera3D" type="Camera3D" parent="Ship/Ship"]
 transform = Transform3D(1, 0, 0, 0, 0.985527, 0.169521, 0, -0.169521, 0.985527, 0, 1.83882, 6.17634)
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.98347, 0, -0.476325)
+mesh = SubResource("SphereMesh_0atp8")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.98347, 0, -3.54336)
+mesh = SubResource("SphereMesh_0atp8")
+
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.54134, 0, -10.3646)
+mesh = SubResource("SphereMesh_0atp8")
