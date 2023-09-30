@@ -30,10 +30,18 @@ func shoot():
 	if weapons.is_empty():
 		weapons = (find_children("*", "Weapon", true) as Array)
 	
-	var weap = weapons.pop_front()
-	weapons.append(weap)
-	weap.shoot()
-	print("Ship shoots with", weap)
+	if weapons.is_empty():
+		print("No weapons")
+		return
+	
+	for i in len(weapons):
+		var weap = weapons[i]
+		if weap.is_ready():
+			weapons.remove_at(i)
+			weapons.append(weap)
+			weap.shoot()
+			print("Ship shoots with", weap)
+			break
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://ks3hry54pp5s"]
+[gd_scene load_steps=7 format=3 uid="uid://ks3hry54pp5s"]
 
 [ext_resource type="Script" path="res://Weapon.gd" id="1_brh8g"]
 [ext_resource type="AudioStream" uid="uid://bi5xmb6yw7xg8" path="res://bling.wav" id="2_3orag"]
@@ -6,6 +6,22 @@
 [sub_resource type="BoxMesh" id="BoxMesh_bkygd"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_8ehw1"]
+
+[sub_resource type="Animation" id="Animation_ryo7x"]
+resource_name = "Weapon_fire"
+length = 0.5
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Barrel")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.735231, 0, 0, 0.025, 1, 0.37746, 0, 0, 0.3, 1, 0.735231, 0, 0)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p2uoy"]
+_data = {
+"Weapon_fire": SubResource("Animation_ryo7x")
+}
 
 [node name="Weapon" type="Node3D"]
 script = ExtResource("1_brh8g")
@@ -23,3 +39,8 @@ mesh = SubResource("BoxMesh_bkygd")
 transform = Transform3D(-3.47261e-09, 0.391479, 0, -0.079444, -1.71121e-08, 0, 0, 0, 0.079444, 0.735231, 0, 0)
 mesh = SubResource("CylinderMesh_8ehw1")
 skeleton = NodePath("../Body")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_p2uoy")
+}

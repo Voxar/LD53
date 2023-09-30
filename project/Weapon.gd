@@ -11,5 +11,10 @@ func _process(delta):
 	pass
 		
 		
+		
+func is_ready():
+	return !$AnimationPlayer.is_playing()
+		
 func shoot():
+	$AnimationPlayer.play("Weapon_fire")
 	$Sound.play()
