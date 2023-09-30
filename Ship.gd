@@ -7,10 +7,10 @@ var thrust_left = 5;
 var thrust_right = 5
 var thrust_up = 5;
 var thrust_down = 5
-var roll_speed_left = 1
-var roll_speed_right = 1
+var roll_speed_left = .5
+var roll_speed_right = .5
 
-var mouse_sens = Vector2(0.001, 0.001)
+var mouse_sens = Vector2(0.05, 0.05)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -46,8 +46,10 @@ func _process(delta):
 		self.roll(roll_speed_left, -Vector3.FORWARD)
 	if Input.is_action_pressed("E"): 
 		self.roll(roll_speed_right, Vector3.FORWARD)
-
-	var mouse = Input.get_last_mouse_velocity()
-	self.roll(mouse.x * mouse_sens.y, -Vector3.UP)
-	self.roll(mouse.y * mouse_sens.x, Vector3.LEFT)
 	
+	
+func _unhandled_input(event):
+	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+		var md = event.relative * mouse_sens
+		self.roll(md.x, -Vector3.UP)
+		self.roll(md.y, Vector3.LEFT)

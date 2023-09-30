@@ -66,3 +66,7 @@ mesh = SubResource("SphereMesh_0atp8")
 [node name="CSGMesh3D3" type="CSGMesh3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.54134, 0, -10.3646)
 mesh = SubResource("SphereMesh_0atp8")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.176761, 16.3292, -23.5045)
+omni_range = 4096.0

@@ -3,8 +3,7 @@ extends Node3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED | Input.MOUSE_MODE_HIDDEN)
-
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -22,7 +21,7 @@ func _process(delta):
 				break
 			else:
 				found = true
-	
-	if Input.mouse_mode & Input.MOUSE_MODE_CAPTURED:
-		var center = get_viewport().size / 2;
-		Input.warp_mouse(center)
+
+	else:
+		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
