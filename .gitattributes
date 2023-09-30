@@ -3,3 +3,4 @@
 AssetSources/Cockpit.blend filter=lfs diff=lfs merge=lfs -text
 Cockpit.glb filter=lfs diff=lfs merge=lfs -text
 Cockpit.gltf filter=lfs diff=lfs merge=lfs -text
+project/bling.wav filter=lfs diff=lfs merge=lfs -text

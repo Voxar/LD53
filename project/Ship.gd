@@ -12,6 +12,8 @@ var roll_speed_right = .5
 
 var mouse_sens = Vector2(0.05, 0.05)
 
+var weapons: Array = []
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -24,6 +26,14 @@ func roll(f, axis):
 	axis = self.transform.basis * axis
 	apply_torque(axis * f)
 	
+func shoot():
+	if weapons.is_empty():
+		weapons = (find_children("*", "Weapon", true) as Array)
+	
+	var weap = weapons.pop_front()
+	weapons.append(weap)
+	weap.shoot()
+	print("Ship shoots with", weap)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -47,6 +57,8 @@ func _process(delta):
 	if Input.is_action_pressed("E"): 
 		self.roll(roll_speed_right, Vector3.FORWARD)
 	
+	if Input.is_action_just_pressed("Shoot"):
+		shoot()
 	
 func _unhandled_input(event):
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:

@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://b5xgyjyrsf6gm"]
+[gd_scene load_steps=12 format=3 uid="uid://b5xgyjyrsf6gm"]
 
 [ext_resource type="Script" path="res://Ship.gd" id="1_7a5yy"]
 [ext_resource type="Script" path="res://main.gd" id="1_wgf28"]
 [ext_resource type="PackedScene" uid="uid://daj2mqwy7v8ev" path="res://Cockpit.tscn" id="3_d5ueg"]
+[ext_resource type="PackedScene" uid="uid://ks3hry54pp5s" path="res://weapon.tscn" id="4_jfa0q"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_r8toh"]
 
@@ -54,7 +55,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(-1.26017e-08, -0.000956018, 0.288293, 1.13959e-17, 0.767393, 0.00254478, -0.288294, 4.17889e-11, -1.26017e-08, -0.886314, -0.00782356, 3.87441e-08)
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Ship/Ship/Gfx/MeshInstance3D"]
-transform = Transform3D(0.505425, 0, 0, 0, 0.160131, 0, 0, 0, 0.137235, 0.523966, 0.249739, -0.551439)
+transform = Transform3D(0.505425, 6.86778e-12, 1.41401e-16, 1.75475e-09, 0.160131, -1.02383e-17, 4.12081e-16, 3.3684e-18, 0.137235, 0.523966, 0.249739, -0.551439)
 mesh = SubResource("BoxMesh_x6qk1")
 skeleton = NodePath("")
 
@@ -62,6 +63,12 @@ skeleton = NodePath("")
 transform = Transform3D(0.505425, 0, 0, 0, 0.160131, 0, 0, 0, 0.137235, 0.523966, 0.249739, 0.554252)
 mesh = SubResource("BoxMesh_x6qk1")
 skeleton = NodePath("")
+
+[node name="Gun2" parent="Ship/Ship/Gfx" instance=ExtResource("4_jfa0q")]
+transform = Transform3D(-2.75919e-08, -1.82967e-10, 0.63124, -0.00209355, 0.631237, 9.14553e-11, -0.631237, -0.00209355, -2.75924e-08, -0.419218, 0.0822595, -1.27846)
+
+[node name="Gun3" parent="Ship/Ship/Gfx" instance=ExtResource("4_jfa0q")]
+transform = Transform3D(-2.75919e-08, -1.82967e-10, 0.63124, -0.00209355, 0.631237, 9.14553e-11, -0.631237, -0.00209355, -2.75924e-08, 0.443356, 0.0822595, -1.27846)
 
 [node name="Camera3D" type="Camera3D" parent="Ship/Ship"]
 transform = Transform3D(1, 0, 0, 0, 0.985527, 0.169521, 0, -0.169521, 0.985527, 0, 1.83882, 6.17634)

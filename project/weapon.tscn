@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://ks3hry54pp5s"]
+
+[ext_resource type="Script" path="res://Weapon.gd" id="1_brh8g"]
+[ext_resource type="AudioStream" uid="uid://bi5xmb6yw7xg8" path="res://bling.wav" id="2_3orag"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_bkygd"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_8ehw1"]
+
+[node name="Weapon" type="Node3D"]
+script = ExtResource("1_brh8g")
+
+[node name="Sound" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00122476, 0, 0)
+stream = ExtResource("2_3orag")
+volume_db = 20.0
+
+[node name="Body" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.205083, 0, 0, 0, 0.19814, 0, 0, 0)
+mesh = SubResource("BoxMesh_bkygd")
+
+[node name="Barrel" type="MeshInstance3D" parent="."]
+transform = Transform3D(-3.47261e-09, 0.391479, 0, -0.079444, -1.71121e-08, 0, 0, 0, 0.079444, 0.735231, 0, 0)
+mesh = SubResource("CylinderMesh_8ehw1")
+skeleton = NodePath("../Body")
