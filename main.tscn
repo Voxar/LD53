@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b5xgyjyrsf6gm"]
+[gd_scene load_steps=10 format=3 uid="uid://b5xgyjyrsf6gm"]
 
 [ext_resource type="Script" path="res://Ship.gd" id="1_7a5yy"]
 [ext_resource type="Script" path="res://main.gd" id="1_wgf28"]
@@ -11,6 +11,17 @@ size = Vector3(1, 0.38, 1.755)
 [sub_resource type="BoxMesh" id="BoxMesh_x6qk1"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_0atp8"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r3dja"]
+sky_curve = 0.0163228
+sky_energy_multiplier = 1.74
+
+[sub_resource type="Sky" id="Sky_qna2f"]
+sky_material = SubResource("ProceduralSkyMaterial_r3dja")
+
+[sub_resource type="Environment" id="Environment_4kk2w"]
+background_mode = 2
+sky = SubResource("Sky_qna2f")
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_wgf28")
@@ -70,3 +81,6 @@ mesh = SubResource("SphereMesh_0atp8")
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.176761, 16.3292, -23.5045)
 omni_range = 4096.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_4kk2w")
