@@ -34,7 +34,7 @@ func _process(delta):
 		
 	if Input.is_action_pressed("A"):
 		self.thrust(thrust_left, Vector3.LEFT)
-	if Input.is_action_pressed("S"): 
+	if Input.is_action_pressed("D"): 
 		self.thrust(thrust_right, Vector3.RIGHT)
 	
 	if Input.is_action_pressed("Space"):
