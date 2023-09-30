@@ -39,7 +39,7 @@ func shoot():
 		if weap.is_ready():
 			weapons.remove_at(i)
 			weapons.append(weap)
-			weap.shoot()
+			weap.shoot(self)
 			print("Ship shoots with", weap)
 			break
 

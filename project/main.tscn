@@ -65,7 +65,7 @@ mesh = SubResource("BoxMesh_x6qk1")
 skeleton = NodePath("")
 
 [node name="Gun2" parent="Ship/Ship/Gfx" instance=ExtResource("4_jfa0q")]
-transform = Transform3D(-2.75919e-08, -1.82967e-10, 0.63124, -0.00209355, 0.631237, 9.14553e-11, -0.631237, -0.00209355, -2.75924e-08, -0.419218, 0.0822595, -1.27846)
+transform = Transform3D(0.00339209, -0.00347777, 0.631222, 0.00616542, 0.631201, 0.00344451, -0.631201, 0.00614673, 0.00342585, -0.419218, 0.0822595, -1.27846)
 
 [node name="Gun3" parent="Ship/Ship/Gfx" instance=ExtResource("4_jfa0q")]
 transform = Transform3D(-2.75919e-08, -1.82967e-10, 0.63124, -0.00209355, 0.631237, 9.14553e-11, -0.631237, -0.00209355, -2.75924e-08, 0.443356, 0.0822595, -1.27846)

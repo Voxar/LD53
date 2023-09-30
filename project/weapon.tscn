@@ -24,6 +24,7 @@ _data = {
 }
 
 [node name="Weapon" type="Node3D"]
+transform = Transform3D(-0.0005597, -0.000115436, 1, -0.000636307, 1, 0.000115088, -1, -0.000636244, -0.000559771, 0, 0, 0)
 script = ExtResource("1_brh8g")
 
 [node name="Sound" type="AudioStreamPlayer3D" parent="."]
