@@ -1,2 +1,4 @@
 # Normalize EOL for all files that Git considers text files.
 * text=auto eol=lf
+AssetSources/Cockpit.blend filter=lfs diff=lfs merge=lfs -text
+Cockpit.glb filter=lfs diff=lfs merge=lfs -text

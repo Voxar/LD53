@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://daj2mqwy7v8ev"]
+
+[ext_resource type="PackedScene" uid="uid://ernaj5b2tihy" path="res://Cockpit.glb" id="1_h16da"]
+
+[node name="Node3D" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+
+[node name="Cockpit" parent="." instance=ExtResource("1_h16da")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0314119, 0, 0.728974)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.653, 0.968)
