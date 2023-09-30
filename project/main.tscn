@@ -51,7 +51,7 @@ mesh = SubResource("BoxMesh_x6qk1")
 skeleton = NodePath("../..")
 
 [node name="Cockpit" parent="Ship/Ship/Gfx/MeshInstance3D" instance=ExtResource("3_d5ueg")]
-transform = Transform3D(-1.26017e-08, -0.000956018, 0.288293, -2.93916e-18, 0.767393, 0.00254478, -0.288294, 4.17889e-11, -1.26017e-08, -0.96573, -0.00852457, 4.22155e-08)
+transform = Transform3D(-1.26017e-08, -0.000956018, 0.288293, 1.13959e-17, 0.767393, 0.00254478, -0.288294, 4.17889e-11, -1.26017e-08, -0.886314, -0.00782356, 3.87441e-08)
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Ship/Ship/Gfx/MeshInstance3D"]
 transform = Transform3D(0.505425, 0, 0, 0, 0.160131, 0, 0, 0, 0.137235, 0.523966, 0.249739, -0.551439)
